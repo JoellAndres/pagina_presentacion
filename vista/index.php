@@ -1,5 +1,9 @@
-<?php
- 
+<?php      
+    if(!isset($_GET['usuario'])){
+        header("location: index.php?usuario=vista");
+    }
+
+    require '../controlador/Header.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +11,7 @@
     <head>
         <title>Joel T. | Presentacion</title>
         
-        <link rel="stylesheet" type="text/css" href="styles.php">
+        <link rel="stylesheet" type="text/css" href="../css/styles.php">
         <meta charset='utf-8' > 
 
         <!-- CSS only -->
@@ -17,16 +21,18 @@
     </head>
 
     <body id="bodyIndex">
-        <header>            
-            <a href="index.php" class="logo">Home</a>          
+        <header>     
+            
+            <a href="index.php?usuario=<?php echo $_GET['usuario']?>">Home</a>
             
             <nav class="menu">
-                <a href="about.html">About Me</a>
-                <a href="projects.html">My Projects</a>
-                <a href="contact.php">Contact</a>                
+
+                <?php
+                    Header::Menu($_GET['usuario']);                    
+                ?>
+
             </nav>
         </header>
-
 
         <section class="home" id="home">
             
@@ -36,10 +42,9 @@
             </div>
             
             <div class="logoTitulo">
-                <img src="imagenes/logo_inicio.png" height="155px" width="155px"/>
+                <img src="../imagenes/logo_inicio.png" height="155px" width="155px"/>
             </div>
-        </section>
-        
+        </section>        
         
     </body>
 

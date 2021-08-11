@@ -1,5 +1,9 @@
-<?php
-    include('insert.php');
+<?php      
+    if(!isset($_GET['usuario'])){
+        header("location: contact.php?usuario=vista");
+    }
+
+    require '../controlador/Header.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,34 +12,36 @@
         <title>Joel T. | Contact Me</title>
         <meta charset='utf-8' > 
 
-        <link rel="stylesheet" href="styles.php">
+        <link rel="stylesheet" type="text/css" href="../css/styles.php">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         
     </head>
 
     <body id="bodyContact">
-        <header>            
-            <a href="index.php" class="logo">Home</a>          
+        <header>         
+             
+            <a href="index.php?usuario=<?php echo$_GET['usuario']?>">Home</a>      
             
             <nav class="menu">
-                <a href="about.html">About Me</a>
-                <a href="projects.html">My Projects</a>
-                <a href="contact.php">Contact</a>                
+
+                <?php
+                    Header::Menu($_GET['usuario']);                    
+                ?>
+
             </nav>
         </header>
-
+        
         <section class="contact" id="contact">
-            <div>
-                <h1>Contact Me</h1>
-            </div>
+            
+            <h1>Contact Me</h1>         
             
 
             <div class="datesOfContact">
                 <h2 id="title">
-                    Leave a message
+                    <strong>Leave a message</strong>
                 </h2>            
                 
-                <form  id="frm_datos_mensajes" action="" method="POST" onsubmit="return ValidarCamposMensaje()">
+                <form  id="frm_datos_mensajes" action="../controlador/insert.php" method="POST" onsubmit="return ValidarCamposMensaje()">
 
                     <div class="input-group">
                         <span class="input-group-text">First and last name</span>
@@ -60,19 +66,23 @@
 
         <section class="socialWebs" id="socialWebs">
             <h2 id="title">
-                Social Webs
+                <strong>Social Webs</strong>
             </h2>
 
             <div class="redes">
-                <a href="https://www.linkedin.com/in/joel-tuma-b1b3b21b9/" target="_blank"> <img src="imagenes/logo_linkedin.png" height="73px" width="130px"/> </a>      
-                <a href="https://github.com/JoellAndres" target="_blank"> <img src="imagenes/logo_git.png" height="73px" width="75px"/> </a>
+                <a href="https://www.linkedin.com/in/joel-tuma-b1b3b21b9/" target="__blank"> <img src="../imagenes/logo__linkedin.png" height="75px" width="75px"/></a>
+                <a href="https://github.com/JoellAndres" target="_blank"> <img src="../imagenes/logo__git.png" height="100px" width="100px"/> </a>
             </div>
         </section>
 
-        <div>
-            <a href="vistaUsuario.php"> <button type="button" class="btn btn-outline-primary">See Messages</button></a>
-        </div>
-
-        <script src="Usuario.js"></script>
+        <?php if(isset($_GET['usuario'])):?>
+            <?php if($_GET['usuario'] == 'admin'):?>
+                <div>
+                    <a href="verMensajes.php"> <button type="button" class="btn btn-primary">See Messages</button></a>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+        
+        <script src="../controlador/Validacion.js"></script>
     </body>
 </html>
