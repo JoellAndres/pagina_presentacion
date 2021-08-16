@@ -24,11 +24,15 @@
     }    
 
     function MostrarProyecto($user){
+        
         $arreglo = array();
         $i = 0;
 
         require 'conexion.class.php';
         $db = new Conexion();
+
+        $db->set_charset("utf8");
+              
 
         $querySelect = "SELECT * FROM `proyecto`";
         $resultado = $db->query($querySelect);

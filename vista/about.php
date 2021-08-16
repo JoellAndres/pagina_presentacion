@@ -16,6 +16,27 @@
     </head>
 
     <body id="bodyAbout">
+        <?php
+                        
+            if($_GET['usuario'] == "admin"){
+                session_start();
+                if(!isset($_SESSION['usuar'])){
+                    //$varSession = $_SESSION['usuar'];
+
+                    //if($varSession == null || $varSession = ""){
+                        echo"
+                        <div class=\"unaccess\">
+                            <h1>No tiene acceso</h1>
+                            <a href=\"index.php\">Back to home</a>
+                        </div>
+                        ";
+
+                        die();
+                    //}
+                }
+            }
+        ?>
+        
         <header>     
                  
             <a href="index.php?usuario=<?php echo$_GET['usuario']?>">Home</a>       

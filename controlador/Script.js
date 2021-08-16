@@ -16,7 +16,7 @@ function MyFunction(){
         Div1.classList.add('mb-3', 'row') 
         //Creamos el label de usuario
         var labelUsuario = document.createElement('label')
-        labelUsuario.textContent = 'Usuario:'
+        labelUsuario.textContent = 'User:'
         labelUsuario.htmlFor = '_usuario'
         labelUsuario.classList.add('col-sm-2', 'col-form-label')
         //Creamos div para el input (porque el formulario esta hecho en bootstrap)
@@ -43,7 +43,7 @@ function MyFunction(){
         Div2.classList.add('mb-3', 'row') 
         //Creamos el label de usuario
         var labelClave = document.createElement('label')
-        labelClave.textContent = 'Clave:'
+        labelClave.textContent = 'Password:'
         labelClave.htmlFor = '_clave'
         labelClave.classList.add('col-sm-2', 'col-form-label')
         //Creamos div para el input (porque el formulario esta hecho en bootstrap)
@@ -70,10 +70,11 @@ function MyFunction(){
         Div3.classList.add('mb-3', 'row') 
         //Creamos el label de usuario
         var labelClaveNueva = document.createElement('label')
-        labelClaveNueva.textContent = 'Nueva Clave:'
+        labelClaveNueva.textContent = 'New Password:'
         labelClaveNueva.htmlFor = '_nuevaClave'
         labelClaveNueva.classList.add('col-sm-2', 'col-form-label')
         labelClaveNueva.id = 'lblNewPass'
+        labelClaveNueva.style.width = '134px'
         //Creamos div para el input (porque el formulario esta hecho en bootstrap)
         var divInput3 = document.createElement('div')
         divInput3.classList.add('col-sm-10')

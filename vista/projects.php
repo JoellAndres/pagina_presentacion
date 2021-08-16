@@ -1,4 +1,6 @@
-<?php      
+<?php   
+
+
     if(!isset($_GET['usuario'])){
         header("location: projects.php?usuario=vista");
     }
@@ -13,10 +15,31 @@
         <title>Joel.T | Projects</title>
         <link rel="stylesheet" type="text/css" href="../css/styles.php">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        <meta charset='utf-8' >
+        <meta charset="utf-8" >
     </head>
     
     <body id="bodyProjects">
+        <?php
+                        
+            if($_GET['usuario'] == "admin"){
+                session_start();
+                if(!isset($_SESSION['usuar'])){
+                    //$varSession = $_SESSION['usuar'];
+
+                    //if($varSession == null || $varSession = ""){
+                        echo"
+                        <div class=\"unaccess\">
+                            <h1>No tiene acceso</h1>
+                            <a href=\"index.php\">Back to home</a>
+                        </div>
+                        ";
+
+                        die();
+                    //}
+                }
+            }
+        ?>
+        
         <header>    
                   
             <a href="index.php?usuario=<?php echo$_GET['usuario']?>">Home</a>      

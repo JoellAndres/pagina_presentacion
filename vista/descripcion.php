@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
-<html>
+<html lang>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/styles.php">
-        <meta charset='utf-8' > 
+        <meta charset="UTF-8"> 
     <head>
 
     <body>
